@@ -46,12 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 forms
         );
 
-        // forms.add(new DegreeIssueApplicationForm());
-        // listView.setAdapter(adapter);
-
-        //DegreeIssueApplicationForm form = (DegreeIssueApplicationForm) getIntent().getSerializableExtra("FORM");
-        //forms.add(form);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -61,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, DegreeIssuanceFormActivity.class);
 
                 intent.putExtra("FORM", selectedItem);
+                intent.putExtra("ENABLED", false);
 
                 startActivityForResult(intent, 0);
 
@@ -72,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, DegreeIssuanceFormActivity.class);
-
-                //intent.putExtra(PASS, new DegreeIssueApplicationForm());
 
                 startActivityForResult(intent, 0);
             }
